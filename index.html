@@ -3,23 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>愛犬と泊まれる宿を探す｜ペット可宿をじゃらん・楽天・一休・るるぶで一括検索 | わんたび</title>
-
-<meta name="description" content="犬の頭数・体重・エリアを入力するだけで、じゃらん・楽天トラベル・一休.com・るるぶトラベルの4大旅行サイトへまとめて誘導。ドッグラン・露天風呂・ペット食事など条件で絞り込めるペット可宿の一括検索ナビです。">
-<meta name="keywords" content="愛犬と泊まれる宿,ペット可宿,犬同伴宿,ドッグラン宿,ペット旅行,じゃらん ペット,楽天トラベル ペット,一休 ペット,るるぶ ペット,小型犬 宿,犬と旅行">
+<title>愛犬と泊まれる宿サイト診断 | わんたび</title>
+<meta name="description" content="5つの質問に答えるだけで、じゃらん・楽天トラベル・一休.com・るるぶトラベルの中からあなたに最適なペット可宿サイトを診断します。">
+<meta name="keywords" content="愛犬と泊まれる宿,ペット可宿,犬同伴宿,ドッグラン,ペット旅行,じゃらん,楽天トラベル,一休,るるぶ,サイト比較">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="愛犬と泊まれる宿を一括検索 | わんたび">
-<meta property="og:description" content="犬の頭数・体重・エリアを入力するだけで、4大旅行サイトへまとめて誘導。ペット可宿をかんたん比較。">
+<meta property="og:title" content="愛犬と泊まれる宿サイト診断 | わんたび">
+<meta property="og:description" content="5つの質問に答えるだけで最適な旅行サイトを診断。ペット可宿探しをもっとかんたんに。">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://your-domain.com/">
+<link rel="canonical" href="https://dog-calorie.github.io/wantabi/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "わんたび｜愛犬と泊まれる宿 検索ナビ",
-  "description": "犬の頭数・体重・エリアを入力するだけで、4大旅行サイトへまとめて誘導するペット可宿の一括検索ツール",
+  "name": "わんたび｜愛犬と泊まれる宿サイト診断",
+  "description": "5つの質問に答えるだけで最適なペット可宿サイトを診断するツール",
   "applicationCategory": "TravelApplication",
   "operatingSystem": "All",
   "inLanguage": "ja",
@@ -39,9 +37,6 @@
     --brown:    #4A3728;
     --text:     #2E2018;
     --muted:    #7A6858;
-    --warn-bg:  #FFF8E8;
-    --warn-bd:  #E8A020;
-    --warn-tx:  #7A5000;
     --white:    #FFFFFF;
     --radius:   12px;
     --radius-lg:18px;
@@ -55,6 +50,8 @@
     line-height: 1.7;
     min-height: 100vh;
   }
+
+  /* ── ヘッダー ── */
   header {
     background: var(--green);
     padding: 14px 24px;
@@ -74,6 +71,8 @@
     color: rgba(255,255,255,.65);
     margin-left: 4px;
   }
+
+  /* ── ヒーロー ── */
   .hero {
     background: linear-gradient(135deg, var(--green) 0%, #2A4532 100%);
     padding: 32px 0 0;
@@ -85,7 +84,6 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 0;
     max-width: 960px;
     margin: 0 auto;
   }
@@ -114,11 +112,7 @@
     letter-spacing: .02em;
   }
   .hero-dog { flex: 0 0 auto; display: flex; align-items: flex-end; }
-  .dog-photo {
-    display: block;
-    object-fit: cover;
-    border-radius: 0;
-  }
+  .dog-photo { display: block; object-fit: cover; border-radius: 0; }
   .dog-photo-left {
     width: clamp(110px, 18vw, 200px);
     height: clamp(140px, 22vw, 250px);
@@ -131,321 +125,249 @@
     object-position: center 20%;
     border-radius: 12px 12px 0 0;
   }
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 32px 20px 60px;
-  }
-  .step-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .step-badge {
-    width: 28px; height: 28px;
-    background: var(--terra);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 700; color: var(--white);
-    flex-shrink: 0;
-  }
-  .step-title { font-size: 16px; font-weight: 700; color: var(--brown); }
 
-  .form-card {
+  /* ── メインエリア ── */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 36px 20px 60px;
+  }
+
+  /* ── プログレスバー ── */
+  .progress-wrap {
+    margin-bottom: 28px;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .progress-bar {
+    height: 6px;
+    background: var(--sand);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--terra);
+    border-radius: 6px;
+    transition: width .4s ease;
+  }
+
+  /* ── 質問カード ── */
+  .q-card {
     background: var(--white);
     border-radius: var(--radius-lg);
     border: 1.5px solid var(--sand);
-    padding: 24px;
+    padding: 28px 24px;
     margin-bottom: 20px;
   }
-
-  /* 頭数選択 */
-  .count-selector {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 6px;
-  }
-  .count-btn {
-    flex: 1;
-    padding: 12px 8px;
-    border-radius: var(--radius);
-    border: 2px solid #DDD8D0;
-    background: var(--cream);
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all .15s;
-    text-align: center;
-  }
-  .count-btn:hover { border-color: var(--terra-lt); color: var(--terra); }
-  .count-btn.active {
-    border-color: var(--terra);
-    background: var(--terra);
-    color: var(--white);
-  }
-
-  /* 注意メッセージ */
-  .warn-box {
-    display: none;
-    background: var(--warn-bg);
-    border-left: 4px solid var(--warn-bd);
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    font-size: 13px;
-    color: var(--warn-tx);
-    margin-top: 10px;
-    line-height: 1.6;
-  }
-  .warn-box.show { display: block; }
-
-  /* 犬ブロック */
-  .dog-blocks { margin-top: 20px; }
-  .dog-block {
-    border: 1.5px dashed #D0C8BC;
-    border-radius: var(--radius-lg);
-    padding: 18px;
-    margin-bottom: 14px;
-    background: var(--cream);
-  }
-  .dog-block-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--terra);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 14px;
-  }
-  .form-group { display: flex; flex-direction: column; gap: 5px; }
-  label {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--muted);
-    letter-spacing: .03em;
-  }
-  input[type="text"],
-  input[type="number"],
-  input[type="date"],
-  select {
-    padding: 10px 13px;
-    border: 1.5px solid #DDD8D0;
-    border-radius: var(--radius);
-    font-family: inherit;
-    font-size: 14px;
-    color: var(--text);
-    background: var(--white);
-    outline: none;
-    transition: border-color .2s;
-    appearance: none;
-    -webkit-appearance: none;
-    width: 100%;
-  }
-  input:focus, select:focus {
-    border-color: var(--terra);
-    background: var(--white);
-  }
-  select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A6858' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 13px center;
-    padding-right: 34px;
-  }
-
-  /* サイズチップ（犬ブロック内） */
-  .chip-section-title {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 7px;
-    letter-spacing: .03em;
-  }
-  .chip-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-  }
-  .chip {
-    padding: 5px 13px;
-    border-radius: 20px;
-    border: 1.5px solid #DDD8D0;
-    background: var(--white);
-    color: var(--muted);
-    font-size: 12px;
-    cursor: pointer;
-    transition: all .15s;
-    user-select: none;
-  }
-  .chip:hover { border-color: var(--terra-lt); color: var(--terra); }
-  .chip.active {
-    background: var(--terra);
-    border-color: var(--terra);
-    color: var(--white);
-    font-weight: 500;
-  }
-
-  .divider {
-    border: none;
-    border-top: 1.5px dashed #E0DAD0;
-    margin: 20px 0;
-  }
-
-  /* 泊数バッジ */
-  .nights-display {
-    margin-top: 8px;
-    font-size: 13px;
-    color: var(--green);
-    font-weight: 500;
-    min-height: 20px;
-  }
-
-  .search-btn {
-    width: 100%;
-    padding: 15px;
-    background: var(--terra);
-    color: var(--white);
-    border: none;
-    border-radius: var(--radius);
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background .2s, transform .1s;
-    margin-top: 8px;
-    display: flex;
+  .q-num-badge {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    letter-spacing: .04em;
-  }
-  .search-btn:hover { background: var(--terra-dk); }
-  .search-btn:active { transform: scale(.99); }
-
-  /* 結果 */
-  .result-area { display: none; margin-top: 32px; }
-  .result-area.show { display: block; }
-  .result-summary {
-    background: var(--green-lt);
-    border-radius: var(--radius);
-    border-left: 4px solid var(--green);
-    padding: 14px 18px;
-    margin-bottom: 24px;
+    width: 28px; height: 28px;
+    background: var(--terra);
+    color: var(--white);
+    border-radius: 50%;
     font-size: 13px;
-    color: var(--green);
-    line-height: 1.9;
+    font-weight: 700;
+    margin-right: 10px;
+    flex-shrink: 0;
   }
-  .result-summary strong { font-weight: 700; color: var(--brown); }
-  .result-heading {
-    font-size: 15px;
+  .q-title {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
     font-weight: 700;
     color: var(--brown);
-    margin-bottom: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
   }
-  .site-grid {
+  .opt-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
   }
+  .opt-btn {
+    padding: 13px 14px;
+    border-radius: var(--radius);
+    border: 1.5px solid #DDD8D0;
+    background: var(--cream);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: all .15s;
+    line-height: 1.5;
+  }
+  .opt-btn:hover {
+    border-color: var(--terra-lt);
+    color: var(--terra);
+    background: #FFF5F0;
+  }
+  .opt-btn.selected {
+    border-color: var(--terra);
+    background: var(--terra);
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* ── 次へボタン ── */
+  .next-btn {
+    width: 100%;
+    padding: 13px;
+    background: var(--terra);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+    display: none;
+  }
+  .next-btn:hover { background: var(--terra-dk); }
+  .next-btn.show { display: block; }
+
+  /* ── 結果エリア ── */
+  .result-area { display: none; }
+  .result-area.show { display: block; }
+
+  .result-intro {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .result-intro p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 6px;
+  }
+  .result-intro small {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ── サイトカード ── */
+  .site-cards { display: flex; flex-direction: column; gap: 14px; }
+
   .site-card {
     background: var(--white);
     border-radius: var(--radius-lg);
     border: 1.5px solid var(--sand);
-    padding: 18px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    transition: box-shadow .2s, border-color .2s;
+    transition: box-shadow .2s;
+    position: relative;
   }
-  .site-card:hover {
-    border-color: var(--terra-lt);
-    box-shadow: 0 4px 16px rgba(192,107,60,.1);
+  .site-card.rank-1 {
+    border: 2.5px solid var(--terra);
+    box-shadow: 0 4px 20px rgba(192,107,60,.12);
   }
-  .site-header { display: flex; align-items: center; gap: 10px; }
-  .site-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-  .site-name { font-size: 15px; font-weight: 700; color: var(--brown); }
-  .site-badge {
+  .site-card.rank-2 { border-color: #B8B0A4; }
+  .site-card.rank-3 { border-color: #C8C0B8; opacity: .92; }
+  .site-card.rank-4 { border-color: #D8D0C8; opacity: .85; }
+
+
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .site-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .site-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--brown);
+  }
+  .site-score {
     margin-left: auto;
-    font-size: 11px;
-    padding: 3px 9px;
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--sand);
+    padding: 2px 10px;
     border-radius: 20px;
-    font-weight: 500;
-    white-space: nowrap;
   }
-  .badge-point   { background: #FFF0E8; color: var(--terra); }
-  .badge-quality { background: #FFF8E0; color: #8A6A00; }
-  .badge-review  { background: #E8F5EE; color: var(--green); }
-  .badge-trust   { background: #EEF2FF; color: #3A4AAA; }
-  .site-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
-  .site-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .site-tag { font-size: 11px; padding: 3px 9px; background: var(--sand); border-radius: 4px; color: var(--muted); }
-  .site-recommend { font-size: 12px; color: var(--terra); font-weight: 500; }
-  .site-link {
+  .site-reason {
+    font-size: 13px;
+    color: var(--terra-dk);
+    font-weight: 500;
+    background: #FFF5F0;
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    line-height: 1.6;
+  }
+  .site-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .site-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .site-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    background: var(--sand);
+    border-radius: 4px;
+    color: var(--muted);
+  }
+  .site-btns {
+    display: flex;
+    gap: 8px;
+  }
+  .site-btn {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 10px;
+    gap: 5px;
+    padding: 10px 8px;
     border-radius: var(--radius);
-    border: 1.5px solid var(--sand);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     text-decoration: none;
-    transition: all .15s;
+    border: none;
+    cursor: pointer;
+    transition: opacity .15s;
   }
-  /* ── ボタングループ（横1行・白文字） ── */
-  .site-btn-group {
-    display: flex;
-    flex-direction: row;
-    gap: 7px;
-  }
-  .site-btn-group .site-link {
-    flex: 1;
-    font-size: 11px;
-    padding: 9px 6px;
-    white-space: nowrap;
-  }
-  .site-link-main,
-  .site-link-main:link,
-  .site-link-main:visited {
-    background: var(--green) !important;
-    border-color: var(--green) !important;
-    color: var(--white) !important;
-  }
-  .site-link-main:hover {
-    background: var(--terra) !important;
-    border-color: var(--terra) !important;
-    color: var(--white) !important;
-  }
-  .site-link-review,
-  .site-link-review:link,
-  .site-link-review:visited {
-    background: var(--terra) !important;
-    border-color: var(--terra) !important;
-    color: var(--white) !important;
-    font-weight: 700;
-  }
-  .site-link-review:hover {
-    background: var(--terra-dk) !important;
-    border-color: var(--terra-dk) !important;
-    color: var(--white) !important;
-  }
-  .note {
-    font-size: 11px;
+  .site-btn:hover { opacity: .85; }
+  .btn-main   { background: var(--green);  color: var(--white); }
+  .btn-review { background: var(--terra);  color: var(--white); }
+
+  /* ── リセット ── */
+  .reset-wrap { text-align: center; margin-top: 28px; }
+  .reset-btn {
+    background: none;
+    border: 1.5px solid var(--sand);
+    border-radius: var(--radius);
+    padding: 10px 28px;
+    font-family: inherit;
+    font-size: 14px;
     color: var(--muted);
-    line-height: 1.7;
-    text-align: center;
-    margin-top: 12px;
+    cursor: pointer;
+    transition: background .15s;
   }
+  .reset-btn:hover { background: var(--sand); }
+
+  /* ── フッター ── */
   footer {
     background: var(--brown);
     color: rgba(255,255,255,.5);
@@ -456,131 +378,98 @@
   }
   footer a { color: rgba(255,255,255,.6); }
 
-  @media (max-width: 640px) {
-    .form-grid, .site-grid { grid-template-columns: 1fr; }
-    .form-card { padding: 16px; }
-    .count-btn { font-size: 12px; padding: 9px 4px; }
-    .hero h1 { font-size: 18px; white-space: normal; }
-    .hero-tagline { font-size: 11px; padding: 4px 12px; white-space: normal; }
-    .dog-photo-left  { width: 80px;  height: 100px; }
-    .dog-photo-right { width: 75px;  height: 95px; }
-    .hero-text { padding: 12px 10px 20px; }
-    .site-grid { grid-template-columns: 1fr; }
+  /* ── レスポンシブ ── */
+  @media (max-width: 600px) {
+    .opt-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 17px; white-space: normal; }
+    .hero-tagline { font-size: 11px; white-space: normal; padding: 5px 12px; }
+    .hero-inner { gap: 0; }
+    .hero-dog { display: flex !important; align-items: flex-end; }
+    .dog-photo-left  { width: 70px !important;  height: 90px !important; }
+    .dog-photo-right { width: 65px !important;  height: 85px !important; }
+    .hero-text { padding: 12px 8px 20px; }
+    .site-btns { flex-direction: column; }
   }
   @media (max-width: 400px) {
-    .hero h1 { font-size: 16px; }
-    .dog-photo-left  { width: 65px; height: 82px; }
-    .dog-photo-right { width: 60px; height: 76px; }
+    .dog-photo-left  { width: 55px !important; height: 72px !important; }
+    .dog-photo-right { width: 50px !important; height: 66px !important; }
+    .hero h1 { font-size: 15px; }
   }
 </style>
 </head>
 <body>
 
+<!-- ヘッダー -->
 <header>
   <span class="logo-paw">🐾</span>
   <span class="logo-text">わんたび</span>
   <span class="logo-sub">愛犬と泊まれる宿 検索ナビ</span>
 </header>
 
+<!-- ヒーロー -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-dog hero-dog-left">
+    <div class="hero-dog">
       <img src="dog_left.jpg" alt="人魚像と茶色のトイプードル" class="dog-photo dog-photo-left">
     </div>
     <div class="hero-text">
       <h1>愛犬と一緒に、<span>最高の旅をしよう</span></h1>
-      <p class="hero-tagline">犬の頭数・体重・エリアを入力するだけで、4大旅行サイトへまとめて誘導</p>
+      <p class="hero-tagline">5つの質問に答えるだけで、あなたにぴったりの宿探しサイトがわかります</p>
     </div>
-    <div class="hero-dog hero-dog-right">
+    <div class="hero-dog">
       <img src="dog_right.jpg" alt="水族館の白いトイプードル" class="dog-photo dog-photo-right">
     </div>
   </div>
 </div>
 
+<!-- メイン -->
 <div class="container">
 
-  <!-- STEP 1：同伴頭数 -->
-  <div class="step-label">
-    <div class="step-badge">1</div>
-    <div class="step-title">同伴するワンちゃんの頭数を選んでください</div>
+  <!-- 説明文ブロック -->
+  <div style="background:#ffffff;border-radius:18px;border:1.5px solid #EDE8DF;padding:28px 24px;margin-bottom:28px;text-align:center;">
+    <p style="font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:#4A3728;margin-bottom:14px;line-height:1.6">
+      愛犬との旅行、宿探しはどうしていますか？
+    </p>
+    <p style="font-size:14px;color:#7A6858;line-height:1.9;margin-bottom:16px">
+      ペット可の宿を探すとき、どのサイトを使えばいいか迷いませんか？<br>
+      <strong style="color:#4A3728">わんたび</strong>では、5つの簡単な質問に答えるだけで、<br>
+      あなたの旅行スタイルや愛犬の状況にマッチした<br>
+      宿探しサイトをご案内します。
+    </p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:16px">
+      <span style="font-size:12px;padding:5px 14px;background:#D4E8DB;border-radius:20px;color:#3A5C44">🐾 犬種・サイズ別に対応</span>
+      <span style="font-size:12px;padding:5px 14px;background:#FFF5F0;border-radius:20px;color:#C06B3C">⭐ 口コミ評価順で表示</span>
+      <span style="font-size:12px;padding:5px 14px;background:#EDE8DF;border-radius:20px;color:#4A3728">✔ 4大サイトを一括比較</span>
+    </div>
+    <p style="font-size:13px;color:#C06B3C;font-weight:500">▼ 下の質問に答えてください（複数選択OK）</p>
   </div>
 
-  <div class="form-card">
-    <div class="count-selector" id="count-selector">
-      <button class="count-btn active" data-count="1" onclick="selectCount(1)">🐶 1頭</button>
-      <button class="count-btn" data-count="2" onclick="selectCount(2)">🐶🐶 2頭</button>
-      <button class="count-btn" data-count="3" onclick="selectCount(3)">🐶🐶🐶 3頭以上</button>
-    </div>
-
-    <div class="warn-box" id="warn-box">
-      ⚠️ <strong>ご注意：</strong>2頭以上を受け入れる宿は非常に少ないです。検索結果が限られる場合があります。
-    </div>
-
-    <!-- 犬の情報ブロック（頭数分を動的生成） -->
-    <div class="dog-blocks" id="dog-blocks"></div>
-  </div>
-
-  <!-- STEP 2：宿泊条件 -->
-  <div class="step-label">
-    <div class="step-badge">2</div>
-    <div class="step-title">宿泊条件を入力</div>
-  </div>
-
-  <div class="form-card">
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="region">エリア・都道府県</label>
-        <input type="text" id="region" placeholder="例：箱根、北海道、那須">
+  <!-- アンケートエリア -->
+  <div id="quiz-area">
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="prog-label">質問 1 / 5</span>
+        <span id="prog-pct">0%</span>
       </div>
-      <div class="form-group">
-        <label for="guests">宿泊人数</label>
-        <select id="guests">
-          <option value="1名">1名</option>
-          <option value="2名" selected>2名</option>
-          <option value="3〜4名">3〜4名</option>
-          <option value="5名以上">5名以上</option>
-        </select>
+      <div class="progress-bar">
+        <div class="progress-fill" id="prog-fill" style="width:0%"></div>
       </div>
     </div>
-
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="checkin">チェックイン日</label>
-        <input type="date" id="checkin" onchange="calcNights()">
-      </div>
-      <div class="form-group">
-        <label for="checkout">チェックアウト日</label>
-        <input type="date" id="checkout" onchange="calcNights()">
-      </div>
-    </div>
-    <div class="nights-display" id="nights-display"></div>
-
-    <hr class="divider">
-
-    <p class="chip-section-title">こだわり条件（複数選択可）</p>
-    <div class="chip-group" id="cond-chips">
-      <span class="chip" data-val="部屋で一緒に過ごせる">🛏 部屋で一緒</span>
-      <span class="chip" data-val="ドッグラン完備">🏃 ドッグラン</span>
-      <span class="chip" data-val="露天風呂あり">♨️ 露天風呂</span>
-      <span class="chip" data-val="ペット用食事あり">🍖 ペット食事</span>
-      <span class="chip" data-val="温泉地">🗾 温泉地</span>
-      <span class="chip" data-val="海が見える">🌊 海が見える</span>
-      <span class="chip" data-val="山・高原">🏔 山・高原</span>
-      <span class="chip" data-val="貸切風呂">🚿 貸切風呂</span>
-    </div>
-
-    <button class="search-btn" onclick="doSearch()">
-      🔍 &nbsp;4サイトで宿を探す
-    </button>
+    <div id="q-container"></div>
+    <button class="next-btn" id="next-btn" onclick="nextQ()">次の質問へ →</button>
   </div>
 
   <!-- 結果エリア -->
   <div class="result-area" id="result-area">
-    <div class="result-summary" id="result-summary"></div>
-    <div id="search-memo" style="background:#FFF3CD;border-left:4px solid #FFA500;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:13px;line-height:1.9;color:#5A3E00;"></div>
-    <div class="result-heading">📋 &nbsp;各サイトで空室・料金を比較する</div>
-    <div class="site-grid" id="site-grid"></div>
-    <p class="note">
+    <div class="result-intro">
+      <p>🐾 質問回答による結果</p>
+      <small>あなたの回答にマッチした宿探しサイトをご案内します</small>
+    </div>
+    <div class="site-cards" id="site-cards"></div>
+    <div class="reset-wrap">
+      <button class="reset-btn" onclick="resetQuiz()">🔄　もう一度診断する</button>
+    </div>
+    <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:16px;line-height:1.7">
       ※ 各ボタンは提携旅行サイトへのアフィリエイトリンクです。<br>
       実際の料金・空室状況・ペット受け入れ条件は各サイトでご確認ください。
     </p>
@@ -588,6 +477,7 @@
 
 </div>
 
+<!-- フッター -->
 <footer>
   <div>© 2025 わんたび｜愛犬と泊まれる宿 検索ナビ</div>
   <div style="margin-top:4px">
@@ -598,270 +488,345 @@
 </footer>
 
 <script>
-let currentCount = 1;
-
-// ── 犬ブロック生成 ──
-function buildDogBlocks(n) {
-  const container = document.getElementById('dog-blocks');
-  container.innerHTML = '';
-  for (let i = 1; i <= n; i++) {
-    const icons = ['🐶','🐕','🦮'];
-    const icon = icons[(i-1) % icons.length];
-    const block = document.createElement('div');
-    block.className = 'dog-block';
-    block.innerHTML = `
-      <div class="dog-block-title">${icon} ${n > 1 ? i + '頭目のワンちゃん' : 'ワンちゃんの情報'}</div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="breed_${i}">犬種</label>
-          <input type="text" id="breed_${i}" placeholder="例：トイプードル、柴犬">
-        </div>
-        <div class="form-group">
-          <label for="age_${i}">年齢</label>
-          <select id="age_${i}">
-            <option value="">選択してください</option>
-            <option value="子犬（1歳未満）">子犬（1歳未満）</option>
-            <option value="1〜3歳">1〜3歳</option>
-            <option value="4〜7歳">4〜7歳</option>
-            <option value="8歳以上（シニア）">8歳以上（シニア）</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="weight_${i}">体重（kg）</label>
-          <input type="number" id="weight_${i}" placeholder="例：5.2" min="0.1" max="100" step="0.1">
-        </div>
-        <div class="form-group">
-          <label>サイズ</label>
-          <div class="chip-group size-chips" id="size_${i}" style="margin-top:4px">
-            <span class="chip" data-val="小型犬（10kg未満）">🐩 小型犬</span>
-            <span class="chip" data-val="中型犬（10〜25kg）">🐕 中型犬</span>
-            <span class="chip" data-val="大型犬（25kg以上）">🦮 大型犬</span>
-          </div>
-        </div>
-      </div>
-    `;
-    container.appendChild(block);
-
-    // サイズチップ：単一選択
-    block.querySelectorAll('.size-chips .chip').forEach(c => {
-      c.onclick = () => {
-        block.querySelectorAll('.size-chips .chip').forEach(x => x.classList.remove('active'));
-        c.classList.toggle('active');
-      };
-    });
+// ── 質問定義 ──
+const questions = [
+  {
+    q: '犬の受け入れ条件で気になることは？（複数選択可）',
+    opts: [
+      'サイズ・体重制限を確認したい',
+      '同伴できる頭数を確認したい',
+      '犬種制限（大型犬・特定犬種）が心配',
+      '室内・部屋への同伴OKか確認したい',
+      'リードなしで過ごせる場所があるか',
+      'ケージ不要の宿を探したい',
+      'だいたいで大丈夫'
+    ]
+  },
+  {
+    q: 'こだわりたい設備・環境は？（複数選択可）',
+    opts: [
+      'ドッグラン完備',
+      '露天風呂・温泉あり',
+      '貸切風呂あり',
+      'ペット用食事・アメニティあり',
+      '部屋食・室内で食事できる',
+      '海が見える・海辺の宿',
+      '山・高原・自然の中',
+      '屋内ドッグランあり',
+      'ペット用シャワー・足洗い場あり',
+      '特になし'
+    ]
+  },
+  {
+    q: '予算・お得さへのこだわりは？（複数選択可）',
+    opts: [
+      '高級・贅沢な宿に泊まりたい',
+      'コスパ重視・リーズナブルに泊まりたい',
+      '楽天ポイントを貯めたい・使いたい',
+      'じゃらんクーポンを使いたい',
+      'セール・早割を活用したい',
+      '直前割・空室割引を使いたい',
+      '素泊まりで安く済ませたい',
+      '予算はあまり気にしない'
+    ]
+  },
+  {
+    q: '宿選びで重視することは？（複数選択可）',
+    opts: [
+      '口コミ・評判の多さ',
+      '宿の品質・格式・ランク',
+      'JTBなど大手の安心感',
+      '写真・設備情報が豊富',
+      'ペット専門の詳細情報',
+      '予約のしやすさ・使いやすさ',
+      '取消・変更のしやすさ',
+      '掲載宿の数・選択肢の多さ'
+    ]
+  },
+  {
+    q: '今回の旅行スタイルは？（複数選択可）',
+    opts: [
+      '初めてのペットとの旅行',
+      'ペット旅行のリピーター',
+      'カップル・夫婦での旅行',
+      '家族（子ども連れ）旅行',
+      '友人・グループ旅行',
+      '記念日・特別な旅行',
+      '温泉旅行',
+      '観光メインの旅行',
+      'のんびり・ゆっくりしたい',
+      '愛犬を思いっきり遊ばせたい'
+    ]
   }
+];
+
+// ── サイト定義 ──
+const sites = {
+  jalan: {
+    name: 'じゃらん',
+    dot:  '#FF6B35',
+    desc: 'ペット可フィルターが最も細かく、口コミ件数が業界最多。ドッグラン・室内同伴OKなど条件で絞り込みたい方に最適。',
+    tags: ['受け入れ条件豊富', 'ドッグラン検索', '口コミ最多', 'セール・クーポン'],
+    url:       'https://px.a8.net/svt/ejp?a8mat=4B5UWA+61WOYI+14CS+6C9LD&a8ejpredirect=' + encodeURIComponent('https://www.jalan.net/theme/pet/'),
+    reviewUrl: 'https://px.a8.net/svt/ejp?a8mat=4B5UWA+61WOYI+14CS+6C9LD&a8ejpredirect=' + encodeURIComponent('https://www.jalan.net/theme/pet/?sort=4')
+  },
+  rakuten: {
+    name: '楽天トラベル',
+    dot:  '#BF0000',
+    desc: '楽天ポイントが貯まる・使える。写真・情報量が豊富でセール時がお得。家族旅行にも人気。',
+    tags: ['ポイント活用', '情報量豊富', 'セール多数', '家族旅行向け'],
+    url:       'https://hb.afl.rakuten.co.jp/hsc/54dc4701.fd858aa6.54dc4702.fe75f495/?link_type=text&ut=eyJwYWdlIjoic2hvcCIsInR5cGUiOiJ0ZXh0IiwiY29sIjoxLCJjYXQiOjEsImJhbiI6Im5hbWUiLCJhbXAiOmZhbHNlfQ%3D%3D&pc=' + encodeURIComponent('https://travel.rakuten.co.jp/pet/'),
+    reviewUrl: 'https://hb.afl.rakuten.co.jp/hsc/54dc4701.fd858aa6.54dc4702.fe75f495/?link_type=text&ut=eyJwYWdlIjoic2hvcCIsInR5cGUiOiJ0ZXh0IiwiY29sIjoxLCJjYXQiOjEsImJhbiI6Im5hbWUiLCJhbXAiOmZhbHNlfQ%3D%3D&pc=' + encodeURIComponent('https://travel.rakuten.co.jp/pet/')
+  },
+  ikyu: {
+    name: '一休.com',
+    dot:  '#C8A040',
+    desc: '高品質・高級宿のみを厳選掲載。特別な記念日や贅沢旅行で愛犬と最高の時間を過ごしたい方に。',
+    tags: ['高級宿特化', '記念日向け', '品質保証', 'こだわり派'],
+    url:       'https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3772920&pid=892633346&vc_url=' + encodeURIComponent('https://www.ikyu.com/area/ma000000/t401/'),
+    reviewUrl: 'https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3772920&pid=892633346&vc_url=' + encodeURIComponent('https://www.ikyu.com/area/ma000000/t401/?sort=review')
+  },
+  rurubu: {
+    name: 'るるぶトラベル',
+    dot:  '#E91E63',
+    desc: 'JTBグループ運営で安心感抜群。初めてのペット旅行に最適。旅行情報誌るるぶと連動した情報も豊富。',
+    tags: ['初心者向け', '安心・信頼', 'JTBグループ', '旅行情報豊富'],
+    url:       'https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3772920&pid=892633366&vc_url=' + encodeURIComponent('https://www.rurubu.travel/theme/pet/'),
+    reviewUrl: 'https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3772920&pid=892633366&vc_url=' + encodeURIComponent('https://www.rurubu.travel/theme/pet/')
+  }
+};
+
+// ── スコアリング ──
+function calcScore(ans) {
+  let s = { jalan:0, rakuten:0, ikyu:0, rurubu:0 };
+  function has(qi, val) { return Array.isArray(ans[qi]) && ans[qi].includes(val); }
+
+  // Q1：受け入れ条件
+  if (has(0,'サイズ・体重制限を確認したい'))         { s.jalan += 3; }
+  if (has(0,'同伴できる頭数を確認したい'))            { s.jalan += 3; }
+  if (has(0,'犬種制限（大型犬・特定犬種）が心配'))    { s.jalan += 3; }
+  if (has(0,'室内・部屋への同伴OKか確認したい'))      { s.jalan += 2; s.rakuten += 1; }
+  if (has(0,'リードなしで過ごせる場所があるか'))      { s.jalan += 2; }
+  if (has(0,'ケージ不要の宿を探したい'))              { s.jalan += 2; s.rakuten += 1; }
+  if (has(0,'だいたいで大丈夫'))                      { s.rakuten += 1; s.ikyu += 1; s.rurubu += 1; }
+
+  // Q2：設備
+  if (has(1,'ドッグラン完備'))                        { s.jalan += 4; }
+  if (has(1,'露天風呂・温泉あり'))                    { s.ikyu += 3; s.jalan += 1; }
+  if (has(1,'貸切風呂あり'))                          { s.ikyu += 2; s.jalan += 2; }
+  if (has(1,'ペット用食事・アメニティあり'))           { s.jalan += 3; s.rakuten += 2; }
+  if (has(1,'部屋食・室内で食事できる'))               { s.ikyu += 2; s.jalan += 1; }
+  if (has(1,'海が見える・海辺の宿'))                  { s.jalan += 2; s.rakuten += 2; }
+  if (has(1,'山・高原・自然の中'))                    { s.jalan += 2; s.rurubu += 2; }
+  if (has(1,'屋内ドッグランあり'))                    { s.jalan += 3; }
+  if (has(1,'ペット用シャワー・足洗い場あり'))         { s.jalan += 3; s.rakuten += 1; }
+  if (has(1,'特になし'))                              { s.rakuten += 1; s.rurubu += 1; }
+
+  // Q3：予算
+  if (has(2,'高級・贅沢な宿に泊まりたい'))            { s.ikyu += 5; }
+  if (has(2,'コスパ重視・リーズナブルに泊まりたい'))  { s.jalan += 2; s.rakuten += 2; }
+  if (has(2,'楽天ポイントを貯めたい・使いたい'))      { s.rakuten += 5; }
+  if (has(2,'じゃらんクーポンを使いたい'))            { s.jalan += 4; }
+  if (has(2,'セール・早割を活用したい'))              { s.jalan += 2; s.rakuten += 3; }
+  if (has(2,'直前割・空室割引を使いたい'))            { s.jalan += 3; s.rakuten += 2; }
+  if (has(2,'素泊まりで安く済ませたい'))              { s.jalan += 2; s.rakuten += 2; }
+  if (has(2,'予算はあまり気にしない'))                { s.ikyu += 3; }
+
+  // Q4：重視ポイント
+  if (has(3,'口コミ・評判の多さ'))                    { s.jalan += 4; }
+  if (has(3,'宿の品質・格式・ランク'))                { s.ikyu += 4; }
+  if (has(3,'JTBなど大手の安心感'))                   { s.rurubu += 4; }
+  if (has(3,'写真・設備情報が豊富'))                  { s.rakuten += 4; }
+  if (has(3,'ペット専門の詳細情報'))                  { s.jalan += 4; }
+  if (has(3,'予約のしやすさ・使いやすさ'))            { s.rakuten += 2; s.rurubu += 2; }
+  if (has(3,'取消・変更のしやすさ'))                  { s.rakuten += 2; s.rurubu += 3; }
+  if (has(3,'掲載宿の数・選択肢の多さ'))              { s.jalan += 3; s.rakuten += 3; }
+
+  // Q5：旅行スタイル
+  if (has(4,'初めてのペットとの旅行'))                { s.rurubu += 4; s.jalan += 1; }
+  if (has(4,'ペット旅行のリピーター'))                { s.ikyu += 2; s.jalan += 3; }
+  if (has(4,'カップル・夫婦での旅行'))                { s.ikyu += 3; s.rurubu += 1; }
+  if (has(4,'家族（子ども連れ）旅行'))                { s.jalan += 2; s.rakuten += 3; }
+  if (has(4,'友人・グループ旅行'))                    { s.jalan += 2; s.rakuten += 2; }
+  if (has(4,'記念日・特別な旅行'))                    { s.ikyu += 4; }
+  if (has(4,'温泉旅行'))                              { s.ikyu += 2; s.jalan += 2; }
+  if (has(4,'観光メインの旅行'))                      { s.jalan += 2; s.rurubu += 2; }
+  if (has(4,'のんびり・ゆっくりしたい'))              { s.ikyu += 2; s.rurubu += 2; }
+  if (has(4,'愛犬を思いっきり遊ばせたい'))            { s.jalan += 4; }
+
+  return s;
 }
 
-// ── 頭数選択 ──
-function selectCount(n) {
-  currentCount = n;
-  document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector(`.count-btn[data-count="${n}"]`).classList.add('active');
-  const warn = document.getElementById('warn-box');
-  if (n >= 2) warn.classList.add('show');
-  else        warn.classList.remove('show');
-  buildDogBlocks(n);
+// ── 選択理由テキスト ──
+function getReason(key, ans) {
+  function has(qi, val) { return Array.isArray(ans[qi]) && ans[qi].includes(val); }
+  const reasonMap = {
+    jalan: [
+      [0,'サイズ・体重制限を確認したい',   '犬のサイズ・体重・頭数など細かい受け入れ条件を絞り込めます'],
+      [0,'同伴できる頭数を確認したい',     '頭数フィルターで複数頭同伴OKの宿を絞り込めます'],
+      [0,'犬種制限（大型犬・特定犬種）が心配','犬種・大型犬対応の宿を専用フィルターで検索できます'],
+      [1,'ドッグラン完備',                 'ドッグラン完備の宿を専用フィルターで簡単に検索できます'],
+      [1,'ペット用食事・アメニティあり',   'ペット用食事・アメニティが充実した宿が豊富です'],
+      [1,'ペット用シャワー・足洗い場あり', 'ペット設備の充実した宿を細かく絞り込めます'],
+      [2,'じゃらんクーポンを使いたい',     'じゃらん限定クーポンで大幅割引が狙えます'],
+      [3,'口コミ・評判の多さ',             '業界最多の口コミ数で実際の愛犬家の声が読めます'],
+      [3,'ペット専門の詳細情報',           'ペット可の詳細条件が最も充実しています'],
+      [4,'愛犬を思いっきり遊ばせたい',    'ドッグラン・ペット設備での絞り込みが最も得意です'],
+    ],
+    rakuten: [
+      [2,'楽天ポイントを貯めたい・使いたい','楽天ポイントが貯まる・使えるのが最大の強みです'],
+      [2,'セール・早割を活用したい',        'スーパーSALEなど大型セールが定期開催されます'],
+      [3,'写真・設備情報が豊富',            '宿の写真・設備情報が充実しており比較しやすいです'],
+      [3,'掲載宿の数・選択肢の多さ',        '掲載施設数が多く選択肢が豊富です'],
+      [4,'家族（子ども連れ）旅行',          '家族・グループ向けプランが豊富に揃っています'],
+    ],
+    ikyu: [
+      [2,'高級・贅沢な宿に泊まりたい',     '全国の高級旅館・ホテルのみを厳選掲載しています'],
+      [2,'予算はあまり気にしない',          '品質重視の上質な宿が充実しています'],
+      [3,'宿の品質・格式・ランク',          '審査をクリアした高品質な宿のみが掲載されています'],
+      [4,'記念日・特別な旅行',              '記念日プランが充実した高級宿が豊富です'],
+      [4,'カップル・夫婦での旅行',          'カップル向け上質プランが充実しています'],
+      [1,'露天風呂・温泉あり',              '露天風呂付き高級旅館が豊富に揃っています'],
+    ],
+    rurubu: [
+      [0,'だいたいで大丈夫',                'JTBグループの安心感で初めてでも使いやすいです'],
+      [3,'JTBなど大手の安心感',             'JTBグループ運営で信頼性が高く安心して利用できます'],
+      [3,'取消・変更のしやすさ',            'JTBグループならではのサポート体制が整っています'],
+      [4,'初めてのペットとの旅行',          '旅行情報が豊富でペット旅行初心者に最適です'],
+      [4,'のんびり・ゆっくりしたい',        '落ち着いた旅館・宿が充実しています'],
+    ]
+  };
+  const list = reasonMap[key] || [];
+  for (const [qi, val, msg] of list) {
+    if (has(qi, val)) return msg;
+  }
+  return null;
 }
 
-// ── 泊数自動計算 ──
-function calcNights() {
-  const ci = document.getElementById('checkin').value;
-  const co = document.getElementById('checkout').value;
-  const disp = document.getElementById('nights-display');
-  if (ci && co) {
-    const diff = Math.round((new Date(co) - new Date(ci)) / 86400000);
-    if (diff > 0) {
-      disp.textContent = '🌙 ' + diff + '泊 (' + ci + ' → ' + co + ')';
-    } else if (diff <= 0) {
-      disp.textContent = '⚠️ チェックアウト日はチェックイン日より後の日付を選んでください';
-    }
+// ── 状態 ──
+let current = 0;
+let answers = [];
+
+// ── 質問描画 ──
+function renderQ() {
+  const q = questions[current];
+  const pct = Math.round((current / questions.length) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-label').textContent = '質問 ' + (current+1) + ' / ' + questions.length;
+  document.getElementById('prog-pct').textContent = pct + '%';
+
+  const qContainer = document.getElementById('q-container');
+  qContainer.innerHTML = '<div class="q-card"><div class="q-title"><span class="q-num-badge">' + (current+1) + '</span>' + q.q + '</div><div class="opt-grid" id="opt-grid"></div></div>';
+
+  const grid = document.getElementById('opt-grid');
+  if (!Array.isArray(answers[current])) answers[current] = [];
+  q.opts.forEach(function(o) {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = o;
+    btn.addEventListener('click', function() {
+      const idx = answers[current].indexOf(o);
+      if (idx === -1) {
+        answers[current].push(o);
+        btn.classList.add('selected');
+      } else {
+        answers[current].splice(idx, 1);
+        btn.classList.remove('selected');
+      }
+      if (answers[current].length > 0) {
+        document.getElementById('next-btn').classList.add('show');
+      } else {
+        document.getElementById('next-btn').classList.remove('show');
+      }
+    });
+    grid.appendChild(btn);
+  });
+
+  const nb = document.getElementById('next-btn');
+  nb.classList.remove('show');
+  nb.textContent = current === questions.length - 1 ? '診断結果を見る 🐾' : '次の質問へ →';
+}
+
+// ── 次へ ──
+function nextQ() {
+  if (!answers[current] || answers[current].length === 0) return;
+  current++;
+  if (current < questions.length) {
+    renderQ();
   } else {
-    disp.textContent = '';
+    showResult();
   }
 }
 
-// ── こだわりチップ ──
-document.querySelectorAll('#cond-chips .chip').forEach(c => {
-  c.onclick = () => c.classList.toggle('active');
-});
+// ── 結果表示 ──
+function showResult() {
+  document.getElementById('prog-fill').style.width = '100%';
+  document.getElementById('prog-label').textContent = '診断完了！';
+  document.getElementById('prog-pct').textContent = '100%';
+  document.getElementById('quiz-area').querySelector('#q-container').innerHTML = '';
+  document.getElementById('next-btn').classList.remove('show');
 
-function getChips(id) {
-  return [...document.querySelectorAll('#' + id + ' .chip.active')].map(c => c.dataset.val);
-}
+  const scores = calcScore(answers);
+  const sorted = Object.entries(scores).sort((a,b) => b[1]-a[1]);
+  const maxPts = sorted[0][1] || 1;
 
-// ── 検索実行 ──
-function doSearch() {
-  const region   = document.getElementById('region').value.trim();
-  const guests   = document.getElementById('guests').value;
-  const checkin  = document.getElementById('checkin').value;
-  const checkout = document.getElementById('checkout').value;
-  const conds    = getChips('cond-chips');
-
-  // 各犬の情報を収集
-  const dogs = [];
-  for (let i = 1; i <= currentCount; i++) {
-    const breed  = document.getElementById('breed_'  + i)?.value.trim() || '';
-    const age    = document.getElementById('age_'    + i)?.value || '';
-    const weight = document.getElementById('weight_' + i)?.value || '';
-    const sizeEl = document.querySelector('#size_' + i + ' .chip.active');
-    const size   = sizeEl ? sizeEl.dataset.val : '';
-    dogs.push({ breed, age, weight, size });
+  // ☆5段階（0.5刻み）を生成
+  function starHTML(pts, max) {
+    const ratio = pts / max;
+    const raw = ratio * 5;
+    const rounded = Math.round(raw * 2) / 2;
+    const full = Math.floor(rounded);
+    const half = (rounded - full) >= 0.5 ? 1 : 0;
+    const empty = 5 - full - half;
+    let s = '<span style="font-size:20px;letter-spacing:2px;color:#C06B3C">';
+    for(let i=0;i<full;i++) s += '★';
+    if(half) s += '½';
+    s += '<span style="color:#DDD8D0">';
+    for(let i=0;i<empty;i++) s += '★';
+    s += '</span></span>';
+    s += '<span style="font-size:13px;color:#7A6858;margin-left:6px">' + rounded.toFixed(1) + ' / 5.0</span>';
+    return s;
   }
 
-  // 泊数計算
-  let nightsStr = '';
-  if (checkin && checkout) {
-    const diff = Math.round((new Date(checkout) - new Date(checkin)) / 86400000);
-    if (diff > 0) nightsStr = diff + '泊';
-  }
+  const container = document.getElementById('site-cards');
+  container.innerHTML = '';
 
-  // サマリー生成
-  let parts = [];
-  if (region)   parts.push('📍 <strong>' + region + '</strong>');
-  if (checkin)  parts.push('📅 IN：<strong>' + checkin + '</strong>');
-  if (checkout) parts.push('📅 OUT：<strong>' + checkout + '</strong>');
-  if (nightsStr) parts.push('🌙 <strong>' + nightsStr + '</strong>');
-  parts.push('👤 <strong>' + guests + '</strong>');
-  parts.push('🐶 同伴：<strong>' + currentCount + '頭</strong>');
-  dogs.forEach((d, idx) => {
-    let dParts = [];
-    if (d.breed)  dParts.push(d.breed);
-    if (d.age)    dParts.push(d.age);
-    if (d.weight) dParts.push(d.weight + 'kg');
-    if (d.size)   dParts.push(d.size);
-    if (dParts.length) {
-      const label = currentCount > 1 ? (idx+1) + '頭目：' : '';
-      parts.push(label + '<strong>' + dParts.join('・') + '</strong>');
-    }
-  });
-  if (conds.length) parts.push('✅ <strong>' + conds.join('・') + '</strong>');
-  document.getElementById('result-summary').innerHTML =
-    '🔍 検索条件｜' + parts.join('　／　');
-
-  // キーワード構築
-  let kw = 'ペット可 犬同伴';
-  if (currentCount >= 2) kw += ' 複数犬';
-  if (region) kw += ' ' + region;
-  const primarySize = dogs[0]?.size || '';
-  if (primarySize) kw += ' ' + primarySize;
-  conds.forEach(c => { kw += ' ' + c; });
-
-  // ── 各サイト遷移先URL ──
-  // じゃらん：ペット可宿トップ（エリア選択はじゃらん側で行う）
-  const jalanBase   = 'https://www.jalan.net/theme/pet/';
-  // 楽天トラベル：ペット可宿検索トップ
-  const rakutenBase = 'https://travel.rakuten.co.jp/pet/';
-  // 一休.com：ペット可全国一覧
-  const ikyuBase    = 'https://www.ikyu.com/area/ma000000/t401/';
-  // るるぶトラベル：ペットと泊まれる宿特集
-  const rurubuBase  = 'https://www.rurubu.travel/theme/pet/';
-
-  const A8_BASE      = 'https://px.a8.net/svt/ejp?a8mat=4B5UWA+61WOYI+14CS+6C9LD&a8ejpredirect=';
-  const RAKUTEN_BASE = 'https://hb.afl.rakuten.co.jp/hsc/54dc4701.fd858aa6.54dc4702.fe75f495/?link_type=text&ut=eyJwYWdlIjoic2hvcCIsInR5cGUiOiJ0ZXh0IiwiY29sIjoxLCJjYXQiOjEsImJhbiI6Im5hbWUiLCJhbXAiOmZhbHNlfQ%3D%3D&pc=';
-  const VC_IKYU      = 'https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3772920&pid=892633346&vc_url=';
-  const VC_RURUBU    = 'https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3772920&pid=892633366&vc_url=';
-
-  const sites = [
-    {
-      name:     'じゃらん',
-      dot:      '#FF6B35',
-      badge:    '口コミ No.1',
-      badgeCls: 'badge-review',
-      desc:     'ペット可プランが豊富で口コミ件数が業界最多。実際に泊まった愛犬家の声が探せます。',
-      tags:     ['口コミ充実', 'プラン多数', 'ポイント利用可'],
-      recommend:'口コミを重視したい方に',
-      url:       A8_BASE + encodeURIComponent(jalanBase),
-      reviewUrl: A8_BASE + encodeURIComponent(jalanBase + '&sort=4')
-    },
-    {
-      name:     '楽天トラベル',
-      dot:      '#BF0000',
-      badge:    'ポイント最強',
-      badgeCls: 'badge-point',
-      desc:     '楽天ポイントが貯まる・使える。スーパーSALE期間中はまとまった節約が期待できます。',
-      tags:     ['楽天ポイント', 'セール多い', '会員特典'],
-      recommend:'ポイントを活用したい方に',
-      url:       RAKUTEN_BASE + encodeURIComponent(rakutenBase),
-      reviewUrl: RAKUTEN_BASE + encodeURIComponent(rakutenBase + '&f_sort=4')
-    },
-    {
-      name:     '一休.com',
-      dot:      '#C8A040',
-      badge:    '高級宿特化',
-      badgeCls: 'badge-quality',
-      desc:     '高級旅館・高級ホテルのみ掲載。特別な記念日や贅沢旅行で愛犬と最高の時間を。',
-      tags:     ['高級宿充実', '記念日向け', '厳選掲載'],
-      recommend:'特別な旅行にしたい方に',
-      url:       VC_IKYU + encodeURIComponent(ikyuBase),
-      reviewUrl: VC_IKYU + encodeURIComponent(ikyuBase + '&sort=review')
-    },
-    {
-      name:     'るるぶトラベル',
-      dot:      '#E91E63',
-      badge:    'JTB系・安心',
-      badgeCls: 'badge-trust',
-      desc:     'JTBグループ運営で安心感◎。旅行情報誌るるぶと連動した豊富な旅行情報も魅力。',
-      tags:     ['JTBグループ', '旅行情報豊富', '安心・信頼'],
-      recommend:'初めてのペット旅行に',
-      url:       VC_RURUBU + encodeURIComponent(rurubuBase),
-      reviewUrl: VC_RURUBU + encodeURIComponent(rurubuBase + '&sort=review')
-    }
-  ];
-
-  // 各サイトで入力する条件メモを表示
-  const memo = document.getElementById('search-memo');
-  if (memo) {
-    let memoLines = ['📝 <strong>各サイトで以下の条件を入力してください</strong>'];
-    if (region)     memoLines.push('📍 目的地：<strong>' + region + '</strong>');
-    if (checkin)    memoLines.push('📅 チェックイン：<strong>' + checkin + '</strong>');
-    if (checkout)   memoLines.push('📅 チェックアウト：<strong>' + checkout + '</strong>');
-    memoLines.push('👤 人数：<strong>' + guests + '</strong>　🐶 ペット：<strong>' + currentCount + '頭</strong>');
-    dogs.forEach((d, i) => {
-      let dp = [];
-      if (d.breed)  dp.push(d.breed);
-      if (d.size)   dp.push(d.size);
-      if (d.weight) dp.push(d.weight + 'kg');
-      if (dp.length) memoLines.push((currentCount > 1 ? (i+1)+'頭目：' : 'ワンちゃん：') + '<strong>' + dp.join('・') + '</strong>');
-    });
-    memo.innerHTML = memoLines.join('　／　');
-  }
-
-  const grid = document.getElementById('site-grid');
-  grid.innerHTML = '';
-  sites.forEach(s => {
-    const tags = s.tags.map(t => `<span class="site-tag">${t}</span>`).join('');
-    const div = document.createElement('div');
-    div.className = 'site-card';
-    div.innerHTML = `
-      <div class="site-header">
-        <span class="site-dot" style="background:${s.dot}"></span>
-        <span class="site-name">${s.name}</span>
-        <span class="site-badge ${s.badgeCls}">${s.badge}</span>
-      </div>
-      <div class="site-desc">${s.desc}</div>
-      <div class="site-tags">${tags}</div>
-      <div class="site-recommend">▶ ${s.recommend}</div>
-      <div class="site-btn-group">
-        <a class="site-link site-link-main" href="${s.url}" target="_blank" rel="noopener noreferrer">
-          空室・料金を見る ↗
-        </a>
-        <a class="site-link site-link-review" href="${s.reviewUrl}" target="_blank" rel="noopener noreferrer">
-          ⭐ 口コミ評価順で見る ↗
-        </a>
-      </div>
-    `;
-    grid.appendChild(div);
+  sorted.forEach(([key, pts], idx) => {
+    const site = sites[key];
+    const reason = getReason(key, answers);
+    const card = document.createElement('div');
+    card.className = 'site-card rank-' + (idx+1);
+    card.innerHTML =
+      '<div class="site-header">' +
+        '<span class="site-dot" style="background:' + site.dot + '"></span>' +
+        '<span class="site-name">' + site.name + '</span>' +
+      '</div>' +
+      '<div style="margin:2px 0 6px">' + starHTML(pts, maxPts) + '</div>' +
+      (reason ? '<div class="site-reason">✔ ' + reason + '</div>' : '') +
+      '<div class="site-desc">' + site.desc + '</div>' +
+      '<div class="site-tags">' + site.tags.map(function(t){return '<span class="site-tag">'+t+'</span>';}).join('') + '</div>' +
+      '<div class="site-btns">' +
+        '<a class="site-btn btn-main" href="' + site.url + '" target="_blank" rel="noopener noreferrer">' + site.name + 'で宿を探す ↗</a>' +
+        '<a class="site-btn btn-review" href="' + site.reviewUrl + '" target="_blank" rel="noopener noreferrer">⭐ 口コミ評価順で見る ↗</a>' +
+      '</div>';
+    container.appendChild(card);
   });
 
-  const area = document.getElementById('result-area');
-  area.classList.add('show');
-  area.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('result-area').classList.add('show');
+  document.getElementById('result-area').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
-// 初期表示：1頭ブロックを生成
-buildDogBlocks(1);
+// ── リセット ──
+function resetQuiz() {
+  current = 0; answers = [];
+  document.getElementById('result-area').classList.remove('show');
+  document.getElementById('site-cards').innerHTML = '';
+  renderQ();
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+// ── 初期化 ──
+renderQ();
 </script>
 </body>
 </html>
