@@ -357,7 +357,7 @@
   }
   .site-btn:hover { opacity: .85; }
   .btn-main   { background: var(--green);  color: var(--white); }
-  .btn-review { background: var(--terra);  color: var(--white); }
+
 
   /* ── リセット ── */
   .reset-wrap { text-align: center; margin-top: 28px; }
@@ -809,7 +809,6 @@ function showResult() {
       '<div class="site-tags">' + site.tags.map(function(t){return '<span class="site-tag">'+t+'</span>';}).join('') + '</div>' +
       '<div class="site-btns">' +
         '<a class="site-btn btn-main" href="' + site.url + '" target="_blank" rel="noopener noreferrer">' + site.name + 'で宿を探す ↗</a>' +
-        '<a class="site-btn btn-review" href="' + site.reviewUrl + '" target="_blank" rel="noopener noreferrer">⭐ 口コミ評価順で見る ↗</a>' +
       '</div>';
     container.appendChild(card);
   });
