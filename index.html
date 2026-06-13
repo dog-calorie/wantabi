@@ -106,64 +106,31 @@
   /* ── ヒーロー ── */
   .hero {
     background: linear-gradient(135deg, var(--green) 0%, #2A4532 100%);
-    padding: 28px 0 0;
+    padding: 28px 0 28px;
     text-align: center;
   }
   .hero-inner {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 8px;
+    padding: 0 20px;
   }
-  .hero-text {
-    flex: 1 1 auto;
-    padding: 16px 12px 24px;
-    min-width: 0;
-  }
+  .hero-text { padding: 0; }
   .hero h1 {
     font-family: 'Noto Serif JP', serif;
-    font-size: clamp(16px, 3.5vw, 32px);
+    font-size: clamp(20px, 4vw, 34px);
     color: var(--white);
     line-height: 1.5;
-    margin-bottom: 10px;
-    white-space: nowrap;
+    margin-bottom: 12px;
   }
   .hero h1 span { color: var(--terra-lt); }
   .hero-tagline {
-    font-size: clamp(10px, 1.8vw, 13px);
+    font-size: 14px;
     color: #ffffff !important;
     background: rgba(0,0,0,.30);
     border-radius: 20px;
     display: inline-block;
-    padding: 5px 14px;
-    white-space: nowrap;
+    padding: 6px 20px;
     letter-spacing: .02em;
-  }
-  .hero-dog {
-    flex: 0 0 auto;
-    display: flex !important;
-    align-items: flex-end;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  .dog-photo {
-    display: block !important;
-    object-fit: cover;
-    visibility: visible !important;
-  }
-  .dog-photo-left {
-    width: clamp(70px, 16vw, 200px);
-    height: clamp(90px, 20vw, 250px);
-    object-position: center top;
-    border-radius: 10px 10px 0 0;
-  }
-  .dog-photo-right {
-    width: clamp(65px, 14vw, 180px);
-    height: clamp(84px, 18vw, 230px);
-    object-position: center 20%;
-    border-radius: 10px 10px 0 0;
   }
 
   /* ── メインエリア ── */
@@ -440,17 +407,17 @@
 <!-- ヒーロー -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-dog">
-      <img src="dog_left.jpg" alt="人魚像と茶色のトイプードル" class="dog-photo dog-photo-left">
-    </div>
     <div class="hero-text">
       <h1>愛犬と一緒に、<span>最高の旅をしよう</span></h1>
       <p class="hero-tagline">5つの質問に答えるだけで、あなたにぴったりの宿探しサイトがわかります</p>
     </div>
-    <div class="hero-dog">
-      <img src="dog_right.jpg" alt="水族館の白いトイプードル" class="dog-photo dog-photo-right">
-    </div>
   </div>
+</div>
+
+<!-- ヘッダー直後：白い犬（カニ）写真 -->
+<div style="background:#2A4532;text-align:center;padding:16px 0;">
+  <img src="dog_right.jpg" alt="水族館の白いトイプードル"
+    style="display:inline-block;max-width:100%;max-height:320px;width:auto;height:auto;border-radius:12px;">
 </div>
 
 <!-- メイン -->
@@ -473,6 +440,10 @@
       <span style="font-size:12px;padding:5px 14px;background:#EDE8DF;border-radius:20px;color:#4A3728">✔ 4大サイトを一括比較</span>
     </div>
     <p style="font-size:13px;color:#C06B3C;font-weight:500">▼ 下の質問に答えてください（複数選択OK）</p>
+    <div style="margin-top:16px;border-radius:12px;overflow:hidden;">
+      <img src="dog_left.jpg" alt="人魚像と茶色のトイプードル"
+        style="display:block;width:100%;max-height:220px;object-fit:cover;object-position:center 25%;">
+    </div>
   </div>
 
   <!-- アンケートエリア -->
