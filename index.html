@@ -294,7 +294,7 @@
     background:#FFE4E8;border-radius:4px;color:#CC0033;margin-left:6px;
   }
   .site-card.rank-2 { border-color: #B8B0A4; }
-  .site-card.rank-3 { border-color: #C8C0B8; opacity: .92; }
+  .site-card.rank-3 { border-color: var(--sand); }
   .site-card.rank-4 { border-color: #D8D0C8; opacity: .85; }
 
 
@@ -804,41 +804,32 @@ function showResult() {
   document.getElementById('next-btn').classList.remove('show');
 
   const scores = calcScore(answers);
-  const sorted = Object.entries(scores).sort((a,b) => b[1]-a[1]);
+  const sorted = Object.entries(scores).sort(function(a,b){ return b[1]-a[1]; });
   const maxPts = sorted[0][1] || 1;
-
-  // ☆5段階（0.5刻み）を生成
-  function starHTML(pts, max) {
-    const ratio = pts / max;
-    const raw = ratio * 5;
-    const rounded = Math.round(raw * 2) / 2;
-    const full = Math.floor(rounded);
-    const half = (rounded - full) >= 0.5 ? 1 : 0;
-    const empty = 5 - full - half;
-    let s = '<span style="font-size:20px;letter-spacing:2px;color:#C06B3C">';
-    for(let i=0;i<full;i++) s += '★';
-    if(half) s += '½';
-    s += '<span style="color:#DDD8D0">';
-    for(let i=0;i<empty;i++) s += '★';
-    s += '</span></span>';
-    s += '<span style="font-size:13px;color:#7A6858;margin-left:6px">' + rounded.toFixed(1) + ' / 5.0</span>';
-    return s;
-  }
 
   const container = document.getElementById('site-cards');
   container.innerHTML = '';
 
-  sorted.forEach(([key, pts], idx) => {
+  sorted.forEach(function(entry) {
+    const key = entry[0], pts = entry[1];
     const site = sites[key];
     const reason = getReason(key, answers);
+    const pct = Math.round(pts / maxPts * 100);
+    const isMatch = pct >= 40;
     const card = document.createElement('div');
-    card.className = 'site-card rank-' + (idx+1);
+    card.className = 'site-card ' + (isMatch ? 'rank-1' : 'rank-3');
     card.innerHTML =
       '<div class="site-header">' +
         '<span class="site-dot" style="background:' + site.dot + '"></span>' +
         '<span class="site-name">' + site.name + '</span>' +
+        (isMatch ? '<span style="margin-left:auto;font-size:11px;padding:2px 10px;border-radius:20px;background:#FFF5F0;color:var(--terra);font-weight:500">おすすめ</span>' : '') +
       '</div>' +
-      '<div style="margin:2px 0 6px">' + starHTML(pts, maxPts) + '</div>' +
+      '<div style="margin:4px 0 10px">' +
+        '<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:4px"><span>マッチ度</span><span>' + pct + '%</span></div>' +
+        '<div style="height:6px;background:var(--sand);border-radius:4px;overflow:hidden">' +
+          '<div style="height:100%;width:' + pct + '%;background:var(--terra);border-radius:4px"></div>' +
+        '</div>' +
+      '</div>' +
       (reason ? '<div class="site-reason">✔ ' + reason + '</div>' : '') +
       '<div class="site-desc">' + site.desc + '</div>' +
       '<div class="site-tags">' + site.tags.map(function(t){return '<span class="site-tag">'+t+'</span>';}).join('') + '</div>' +
