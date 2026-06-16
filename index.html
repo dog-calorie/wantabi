@@ -48,18 +48,38 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "愛犬と泊まれる宿はどのサイトで探せばよいですか？",
-      "acceptedAnswer": { "@type": "Answer", "text": "犬の受け入れ条件を細かく確認したい場合はじゃらんnet、楽天ポイントを活用したい場合は楽天トラベル、高級宿をお探しの場合は一休.com、初めてのペット旅行には安心感のあるるるぶトラベルがおすすめです。わんたびでは5つの質問に答えるだけで最適なサイトをご案内します。" }
+      "name": "愛犬と泊まれる宿はどこで探せばいいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "じゃらん・楽天トラベル・一休.com・るるぶトラベル・Yahoo!トラベルの5サイトが代表的です。わんたびのアンケートに答えるだけであなたにぴったりのサイトをご案内します。" }
     },
     {
       "@type": "Question",
-      "name": "ドッグランがある宿はどこで探せますか？",
-      "acceptedAnswer": { "@type": "Answer", "text": "ドッグラン完備の宿を探すならじゃらんnetが最も条件で絞り込みやすく、掲載数も豊富です。" }
+      "name": "じゃらんと楽天トラベル、ペット可宿が多いのはどちらですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "掲載数は楽天トラベルが国内最大級（約44,000件）ですが、ペット可宿の絞り込み機能はじゃらんが最も充実しています。" }
     },
     {
       "@type": "Question",
-      "name": "大型犬でも泊まれる宿はありますか？",
-      "acceptedAnswer": { "@type": "Answer", "text": "大型犬対応の宿はじゃらんnetやるるぶトラベルで犬種・サイズ別に絞り込んで検索できます。受け入れ可能なサイズは宿によって異なりますので、予約前に各宿へご確認ください。" }
+      "name": "大型犬でも泊まれる宿の探し方は？",
+      "acceptedAnswer": { "@type": "Answer", "text": "じゃらんの犬専用コーナーで大型犬OKのフィルターを使うのが最も効率的です。大型犬対応の宿は数が限られるため早めの予約をおすすめします。" }
+    },
+    {
+      "@type": "Question",
+      "name": "ドッグラン付きの宿はどこで探せますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "じゃらんの犬専用コーナーにドッグラン完備の絞り込みフィルターがあり、最も宿の選択肢が豊富です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "2頭以上の犬を連れて泊まれる宿はありますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "2頭以上を受け入れる宿は非常に少ないのが現状です。じゃらんで頭数フィルターを使って絞り込むか、宿に直接お問い合わせください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "ポイントを使ってお得にペット可宿を予約したい",
+      "acceptedAnswer": { "@type": "Answer", "text": "楽天ポイントをお持ちの方は楽天トラベル、PayPayポイントをお持ちの方はYahoo!トラベルまたは一休.comがおすすめです。" }
+    },
+    {
+      "@type": "Question",
+      "name": "初めてペットと旅行するのですが、どのサイトがおすすめですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "JTBグループのるるぶトラベルは旅行情報が豊富で初めてのペット旅行をサポートしてくれます。じゃらんは口コミが多く実際に愛犬と泊まった方の体験談を参考にしやすいのでおすすめです。" }
     }
   ]
 }
@@ -387,6 +407,46 @@
   }
   .reset-btn:hover { background: var(--sand); }
 
+  /* ── FAQ ── */
+  .faq-item {
+    border-bottom: 1px solid var(--sand);
+    margin-bottom: 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 4px;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--brown);
+    cursor: pointer;
+    text-align: left;
+    gap: 12px;
+    line-height: 1.5;
+  }
+  .faq-q:hover { color: var(--terra); }
+  .faq-icon {
+    flex-shrink: 0;
+    font-size: 18px;
+    color: var(--terra);
+    transition: transform .2s;
+    font-weight: 300;
+  }
+  .faq-a {
+    display: none;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+    padding: 0 4px 14px;
+  }
+  .faq-a.open { display: block; }
+
   /* ── フッター ── */
   footer {
     background: var(--brown);
@@ -435,6 +495,87 @@
 
 <!-- メイン -->
 <div class="container">
+
+  <!-- FAQセクション -->
+  <div style="background:var(--white);border-radius:var(--radius-lg);border:1.5px solid var(--sand);padding:24px;margin-bottom:24px;">
+    <p style="font-size:16px;font-weight:700;color:var(--brown);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+      ❓ よくある質問
+    </p>
+    <div id="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          愛犬と泊まれる宿はどこで探せばいいですか？
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">
+          じゃらん・楽天トラベル・一休.com・るるぶトラベル・Yahoo!トラベルの5サイトが代表的です。それぞれ得意分野が異なるため、当サイトのアンケートに答えるだけであなたにぴったりのサイトをご案内します。
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          じゃらんと楽天トラベル、ペット可宿が多いのはどちらですか？
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">
+          掲載数は楽天トラベルが国内最大級（約44,000件）ですが、ペット可宿の絞り込み機能はじゃらんが最も充実しています。犬のサイズ・頭数・ドッグランなど細かい条件で絞り込みたい場合はじゃらんがおすすめです。
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          大型犬でも泊まれる宿の探し方は？
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">
+          じゃらんの犬専用コーナーで「大型犬OK」のフィルターを使うのが最も効率的です。大型犬対応の宿は数が限られるため、早めの予約をおすすめします。
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ドッグラン付きの宿はどこで探せますか？
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">
+          じゃらんの犬専用コーナーに「ドッグラン完備」の絞り込みフィルターがあり、最も宿の選択肢が豊富です。那須・箱根・軽井沢・伊豆エリアに多く、アンケートの「こだわり条件」で「ドッグラン完備」を選ぶとじゃらんが優先的に表示されます。
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          2頭以上の犬を連れて泊まれる宿はありますか？
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">
+          2頭以上を受け入れる宿は非常に少ないのが現状です。じゃらんで「頭数」フィルターを使って絞り込むか、宿に直接お問い合わせいただくことをおすすめします。
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ペット可の温泉旅館を探したい場合は？
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">
+          一休.comは高級温泉旅館に強く、露天風呂付き客室でペットと過ごせる宿が充実しています。じゃらんでも「露天風呂あり」×「ペット可」で絞り込みが可能です。
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ポイントを使ってお得にペット可宿を予約したい
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">
+          楽天ポイントをお持ちの方は楽天トラベル、PayPayポイントをお持ちの方はYahoo!トラベルまたは一休.comがおすすめです。Yahoo!トラベルはポイント即時利用で実質最安値になることが多いです。
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          初めてペットと旅行するのですが、どのサイトがおすすめですか？
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">
+          JTBグループのるるぶトラベルは旅行情報が豊富で、初めてのペット旅行をしっかりサポートしてくれます。また、じゃらんは口コミが多く、実際に愛犬と泊まった方の体験談を参考にしやすいのでおすすめです。
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- 説明文ブロック -->
   <div style="background:#ffffff;border-radius:18px;border:1.5px solid #EDE8DF;padding:28px 24px;margin-bottom:28px;text-align:center;">
@@ -518,6 +659,22 @@
 </footer>
 
 <script>
+// ── FAQ アコーディオン ──
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const icon = btn.querySelector('.faq-icon');
+  const isOpen = answer.classList.contains('open');
+  // 全部閉じる
+  document.querySelectorAll('.faq-a').forEach(function(a) { a.classList.remove('open'); });
+  document.querySelectorAll('.faq-icon').forEach(function(i) { i.textContent = '＋'; i.style.transform = ''; });
+  // クリックしたものを開く（すでに開いていたら閉じる）
+  if (!isOpen) {
+    answer.classList.add('open');
+    icon.textContent = '－';
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
+
 // ── 質問定義 ──
 const questions = [
   {
