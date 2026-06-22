@@ -365,6 +365,27 @@
     padding: 2px 10px;
     border-radius: 20px;
   }
+
+  /* ── レンタカーリンク ── */
+  .rentacar-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--white);
+    color: var(--green);
+    border: 1.5px solid var(--green);
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .15s, color .15s;
+  }
+  .rentacar-link:hover {
+    background: var(--green);
+    color: var(--white);
+  }
+
   .site-reason {
     font-size: 13px;
     color: var(--terra-dk);
@@ -571,20 +592,44 @@
       実際の料金・空室状況・ペット受け入れ条件は各サイトでご確認ください。
     </p>
 
-    <!-- レンタカーバナー -->
-    <div style="margin-top:24px;background:var(--green-lt);border-radius:var(--radius-lg);border:1.5px solid var(--green);padding:20px 24px;text-align:center;">
-      <p style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;letter-spacing:.05em">🚗 愛犬との旅の移動手段も忘れずに</p>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.7">
+    <!-- レンタカーリンク -->
+    <div style="margin-top:24px;background:var(--green-lt);border-radius:var(--radius-lg);border:1.5px solid var(--green);padding:20px 24px;">
+      <p style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;letter-spacing:.05em;text-align:center">🚗 愛犬との旅の移動手段も忘れずに</p>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.7;text-align:center">
         愛犬と旅行するなら、自由に動けるレンタカーが便利です。<br>
         ペットを乗せやすい車種もお選びいただけます。
       </p>
-      <a href="https://px.a8.net/svt/ejp?a8mat=4B5WGB+4Z7IMY+AD2+2Z5LGI&a8ejpredirect=https%3A%2F%2Frentacar.airtrip.jp%2F"
-        rel="nofollow sponsored noopener" target="_blank"
-        style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--green);color:#fff;border-radius:var(--radius);font-size:14px;font-weight:700;text-decoration:none;">
-        🚗 レンタカーで車を探す ↗
-      </a>
-      <img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4B5WGB+4Z7IMY+AD2+2Z5LGI" alt="">
-      <p style="font-size:11px;color:var(--muted);margin-top:10px">※ アフィリエイトリンクです</p>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+        <li>
+          <a href="https://px.a8.net/svt/ejp?a8mat=4B5WGB+4Z7IMY+AD2+2Z5LGI&a8ejpredirect=https%3A%2F%2Frentacar.airtrip.jp%2F"
+            rel="nofollow sponsored noopener" target="_blank" class="rentacar-link">
+            🚗 エアトリレンタカーで車を探す ↗
+          </a>
+          <img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4B5WGB+4Z7IMY+AD2+2Z5LGI" alt="">
+        </li>
+        <li>
+          <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3772920&pid=892642417"
+            rel="nofollow sponsored noopener" target="_blank" class="rentacar-link">
+            🚗 じゃらんレンタカーで車を探す ↗
+          </a>
+          <img border="0" width="1" height="1" src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3772920&pid=892642417" alt="">
+        </li>
+        <li>
+          <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3772920&pid=892642419"
+            rel="nofollow sponsored noopener" target="_blank" class="rentacar-link">
+            🚗 たびらいレンタカーで車を探す ↗
+          </a>
+          <img border="0" width="1" height="1" src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3772920&pid=892642419" alt="">
+        </li>
+        <li>
+          <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3772920&pid=892642421"
+            rel="nofollow sponsored noopener" target="_blank" class="rentacar-link">
+            🚗 スカイチケットレンタカーで車を探す ↗
+          </a>
+          <img border="0" width="1" height="1" src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3772920&pid=892642421" alt="">
+        </li>
+      </ul>
+      <p style="font-size:11px;color:var(--muted);margin-top:12px;text-align:center">※ アフィリエイトリンクです</p>
     </div>
   </div>
 
