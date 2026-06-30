@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # サイトマップの場所をGoogleに伝える
-Sitemap: https://dog-calorie.github.io/wantabi/sitemap.xml
+Sitemap: https://wantabi.pages.dev/sitemap.xml
